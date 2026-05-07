@@ -1,0 +1,95 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: #3f0071;
+}
+
+.container_formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.div_formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
+  height: 500px;
+  gap: 20px;
+  border-radius: 20px;
+  border: 5px solid white;
+  background-color: #1f0831;
+}
+
+.div_formulario h3 {
+    font-size: 30px;
+    color: white;
+    font-family: FreeMono, monospace;
+ ;
+}
+
+input {
+  width: 400px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+input::placeholder {
+  font-family: FreeMono, monospace;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#button {
+  border-radius: 80px;
+  background-color: #3f0071;
+  border: 5px solid #bf92e4;
+  width: 250px;
+  height: 50px;
+  color: #f5f4f7;
+  font-family: FreeMono, monospace;
+  font-size: 20px;
+}
+
+/* Card jogo */
+
+.lista_de_jogos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  height: 300px;
+  background-color: #8763a5;
+  margin: 10px;
+  border: 10px solid #e1d5eb;
+  border-radius: 20px;
+}
+
+.card_jogo p {
+  font-size: 30px;
+}
+
+.card_jogo button {
+  border-radius: 80px;
+  background-color: #3f0071;
+  border: 5px solid #bf92e4;
+  width: 250px;
+  height: 50px;
+  color: #f5f4f7;
+  font-family: FreeMono, monospace;
+  font-size: 20px;
+}
