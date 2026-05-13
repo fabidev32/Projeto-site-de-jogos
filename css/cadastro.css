@@ -16,23 +16,31 @@ body {
 
 .div_formulario {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 800px;
-  height: 500px;
-  gap: 20px;
+  gap: 80px;
   border-radius: 20px;
   border: 5px solid white;
   background-color: #1f0831;
 }
 
-.div_formulario h3 {
-    font-size: 30px;
-    color: white;
-    font-family: FreeMono, monospace;
- ;
+.div_texto,
+.div_imagem,
+.div_botoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
+
+.div_formulario h3 {
+  font-size: 30px;
+  color: white;
+  font-family: FreeMono, monospace;
+}
+
 
 input {
   width: 400px;
@@ -70,9 +78,8 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
   width: 400px;
-  height: 300px;
+  gap: 10px;
   background-color: #8763a5;
   margin: 10px;
   border: 10px solid #e1d5eb;
@@ -93,3 +100,25 @@ input::placeholder {
   font-family: FreeMono, monospace;
   font-size: 20px;
 }
+
+.card_jogo img {
+  width: 200px;
+  height: 200px;
+}
+
+/* Imagem */
+
+.visualizar_imagem_baixada {
+  width: 100px;
+  height: 100px;
+}
+
+.estilo_imagem_baixada {
+  width: 150px;
+  height: 150px;
+  padding: 5px;
+  margin-bottom: 30px;
+  border: 2px solid white;
+
+}
+

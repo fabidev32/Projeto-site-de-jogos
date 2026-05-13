@@ -11,20 +11,43 @@
     <main>
       <section class="container_formulario">
         <div class="div_formulario">
-          <h3>Cadastre um jogo que você gosta!</h3>
-          <input type="text" id="nome" placeholder="Digite o nome do jogo" />
-          <input
-            type="text"
-            id="descricao"
-            placeholder="Digite a descrição do jogo"
-          />
-          <button id = "button" onclick="CriarJogo()">Criar jogo</button>
-          <button id = "button" onclick="Limparlista()">Remover</button>
+          <!---É o filho de section. Preciso de um pai para ele pois é o section que define o espaço que posso utilizar -->
+          <!-- Informações básicas -->
+          <div class="div_texto">
+            <h3>Cadastre um jogo que você gosta!</h3>
+            <input type="text" id="nome" placeholder="Digite o nome do jogo" />
+            <input
+              type="text"
+              id="descricao"
+              placeholder="Digite a descrição do jogo"
+            />
+            <input
+              type="text"
+              id="link"
+              placeholder="Digite o link do jogo"
+            />
+          </div>
+
+          <!-- Adicionar imagem -->
+          <div class="div_imagem">
+            <label for="imagem_baixada">Selecione uma imagem </label>
+            <div> <!-- Coloquei porque quero um do lado do outro -->
+              <input type="file" id="input_com_imagem" />
+              <button onclick="VeImagem()">Vê imagem</button>
+            </div>
+            <div class="visualizar_imagem_baixada"></div>
+          </div>
+
+          <!-- Botões de ação -->
+          <div class="div_botoes">
+            <button id="button" onclick="CriarJogo()">Criar jogo</button>
+            <button id="button" onclick="Limparlista()">Remover</button>
+          </div>
         </div>
       </section>
       <!-- Lista de jogos-->
       <div class="lista_de_jogos"></div>
     </main>
-    <script src="./../javascript/script.js"></script>
+    <script src="./../javascript/cadastro.js"></script>
   </body>
 </html>
