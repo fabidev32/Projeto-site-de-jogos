@@ -5,47 +5,22 @@ body {
   background-color: #3f0071;
 }
 
-.container_formulario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  flex-direction: column;
+button,
+input {
+  transition: transform 0.3s ease-in-out;
 }
-
-.div_formulario {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  border-radius: 20px;
-  border: 5px solid white;
-  background-color: #1f0831;
+button:hover,
+input:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
-
-.div_texto,
-.div_imagem,
-.div_botoes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.div_formulario h3 {
-  font-size: 30px;
-  color: white;
-  font-family: FreeMono, monospace;
-}
-
 
 input {
   width: 400px;
   height: 50px;
   border-radius: 20px;
+  border: 1px solid #1f0831;
+  margin: 5px;
 }
 
 input::placeholder {
@@ -54,43 +29,96 @@ input::placeholder {
   padding: 10px;
 }
 
-#button {
-  border-radius: 80px;
-  background-color: #3f0071;
-  border: 5px solid #bf92e4;
-  width: 250px;
-  height: 50px;
-  color: #f5f4f7;
-  font-family: FreeMono, monospace;
-  font-size: 20px;
+input[type="file"] {
+  display: none;
 }
 
-/* Card jogo */
-
-.lista_de_jogos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card_jogo {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 400px;
-  gap: 10px;
-  background-color: #8763a5;
+}
+
+.container_formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100vh;
   margin: 10px;
-  border: 10px solid #e1d5eb;
+  flex-direction: column;
+}
+
+.div_formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 800px;
+  height: 100vh;
   border-radius: 20px;
+  border: 5px solid white;
+  background-color: #1f0831;
 }
 
-.card_jogo p {
+.div_imagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0px;
+}
+
+.div_texto,
+.div_botoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  gap: 20px;
+}
+
+.div_formulario h3 {
   font-size: 30px;
+  color: white;
+  font-family: FreeMono, monospace;
 }
 
-.card_jogo button {
+.div_imagem label {
+  font-size: 20px;
+  color: white;
+  font-family: FreeMono, monospace;
+  height: 30px;
+  background-color: #3f0071;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.div_imagem div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.div_imagem button {
+  border-radius: 80px;
+  background-color: #1f0831;
+  border: 2px solid #bf92e4;
+  width: 150px;
+  height: 50px;
+  color: #f5f4f7;
+  font-family: FreeMono, monospace;
+  font-size: 15px;
+}
+
+#button {
+  margin-top: 20px;
   border-radius: 80px;
   background-color: #3f0071;
   border: 5px solid #bf92e4;
@@ -99,26 +127,21 @@ input::placeholder {
   color: #f5f4f7;
   font-family: FreeMono, monospace;
   font-size: 20px;
-}
-
-.card_jogo img {
-  width: 200px;
-  height: 200px;
 }
 
 /* Imagem */
 
 .visualizar_imagem_baixada {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .estilo_imagem_baixada {
   width: 150px;
   height: 150px;
   padding: 5px;
-  margin-bottom: 30px;
+  margin-top: 100px;
+  margin-bottom: 20px;
   border: 2px solid white;
-
+  border-radius: 20px;
 }
-

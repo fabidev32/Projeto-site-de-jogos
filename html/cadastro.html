@@ -21,17 +21,14 @@
               id="descricao"
               placeholder="Digite a descrição do jogo"
             />
-            <input
-              type="text"
-              id="link"
-              placeholder="Digite o link do jogo"
-            />
+            <input type="text" id="link" placeholder="Digite o link do jogo" />
           </div>
 
           <!-- Adicionar imagem -->
           <div class="div_imagem">
-            <label for="imagem_baixada">Selecione uma imagem </label>
-            <div> <!-- Coloquei porque quero um do lado do outro -->
+            <div>
+              <!-- Coloquei porque quero um do lado do outro -->
+              <label for="input_com_imagem">Selecione uma imagem </label>
               <input type="file" id="input_com_imagem" />
               <button onclick="VeImagem()">Vê imagem</button>
             </div>
@@ -41,7 +38,6 @@
           <!-- Botões de ação -->
           <div class="div_botoes">
             <button id="button" onclick="CriarJogo()">Criar jogo</button>
-            <button id="button" onclick="Limparlista()">Remover</button>
           </div>
         </div>
       </section>

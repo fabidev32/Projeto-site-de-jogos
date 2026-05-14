@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página inicial</title>
-    <link rel="stylesheet" href="./../css/jogos.css" class="stylesheet" />
+    <link rel="stylesheet" href="./../css/home.css" class="stylesheet" />
   </head>
   <body>
     <header>
@@ -21,38 +21,45 @@
 
     <main>
       <!-- Bem vindo-->
-      <div class="div_bem_vindo">
+      <section class="section_bem_vindo">
         <h2>Conheça minha biblioteca de jogos!</h2>
-        <div></div>
-      </div>
+      </section>
 
-      <!-- Conheça os jogos -->
-      <section class="container_conheca_os_jogos">
-        <div class="div_imagem">
-          <img
-            class="imagem_principal"
-            src="./../imagens/imagem_principal_01.png"
-            alt="Imagem principal da minha página"
-          />
+      <!-- Slide de imagens -->
+      <section class="section_imagens">
+        <img
+          id="anterior"
+          src="./../imagens/anterior.png"
+          alt="Ícone anterior"
+          onclick="Anterior()"
+        />
+        <div class="carrossel_de_imagens">
+          <!-- Esta é a janela (janela fixa) -->
+          <div class="carrossel_trilho">
+            <!-- Este é o trilho (quem desliza) -->
+            <img src="./../imagens/carrossel01.png" alt="Imagem do carrossel" />
+            <img src="./../imagens/carrossel02.png" alt="Imagem do carrossel" />
+            <img src="./../imagens/carrossel03.png" alt="Imagem do carrossel" />
+            <img src="./../imagens/carrossel04.png" alt="Imagem do carrossel" />
+          </div>
         </div>
-        <div class="div_imagem">
-          <img
-            class="imagem_principal"
-            src="./../imagens/imagem_principal_02.avif"
-            alt="Imagem principal da minha página"
-          />
-        </div>
+        <img
+          id="proximo"
+          src="./../imagens/proximo.png"
+          alt="Ícone próximo"
+          onclick="Proximo()"
+        />
       </section>
 
       <!-- Seção de jogos -->
-      <section class="container_conteudo_jogos">
+      <section class="section_conteudo_jogos">
         <div class="div_texto">
           <p>
             Acesse recomendações de jogos de todos os tipos! Clique no botão
             abaixo e cadastre o seu!
           </p>
           <div>
-            <button>Cadastre aqui!</button>
+            <button> <a href="cadastro.html">Cadastre aqui!</a></button>
           </div>
         </div>
         <!-- Jogo 01 -->
@@ -137,5 +144,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./../javascript/home.js"></script>
   </body>
 </html>
