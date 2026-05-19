@@ -7,22 +7,30 @@ let visualizar_imagem_baixada = document.querySelector(
   ".visualizar_imagem_baixada",
 );
 
+
 //Array
 let jogos = new Array();
 
 /* Pegar a imagem selecionada pelo usuário */
 
-function VeImagem() {
-  visualizar_imagem_baixada.innerHTML = "";
-  const urlImagem = PegaURLImagem();
-  const imagem = document.createElement("img");
-  imagem.classList.add("estilo_imagem_baixada");
-  imagem.src = urlImagem;
-  visualizar_imagem_baixada.appendChild(imagem);
+function PegaURLImagem() {
+  return (caminho_da_imagem = URL.createObjectURL(input_com_imagem.files[0]));
 }
 
-function PegaURLImagem() {
-  return URL.createObjectURL(input_com_imagem.files[0]);
+function ExibirImagem(caminho_da_imagem) {
+  caminho_da_imagem == " " ? " " : CriarElementoImagem(caminho_da_imagem);
+}
+
+input_com_imagem.addEventListener("input", (event) => {
+  const caminho_da_imagem = PegaURLImagem();
+  ExibirImagem(caminho_da_imagem);
+});
+
+function CriarElementoImagem(urlImagem) {
+  const imagem = document.createElement("img");
+  visualizar_imagem_baixada.classList.add("mostrarImagem");
+  imagem.src = urlImagem;
+  visualizar_imagem_baixada.appendChild(imagem);
 }
 
 // Lógica para criar jogo
@@ -40,6 +48,3 @@ const Jogo = (nome, descricao, imagem, link) => ({
   imagem,
   link,
 });
-
-
-
