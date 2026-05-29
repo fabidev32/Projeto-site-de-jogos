@@ -1,50 +1,121 @@
-//Elementos HTML
-let descricao = document.querySelector("#descricao");
-let nome = document.querySelector("#nome");
-let link = document.querySelector("#link");
+const nome = document.getElementById("nome");
+const link = document.getElementById("link");
+// let genero = document.getElementById("genero");
+let estilo = document.querySelector(".estilo");
+let lista_de_jogos = document.querySelector(".lista_de_jogos");
+let audio = document.querySelector("#audio");
 let input_com_imagem = document.getElementById("input_com_imagem");
-let visualizar_imagem_baixada = document.querySelector(
-  ".visualizar_imagem_baixada",
-);
+let input_com_audio = document.getElementById("input_com_audio");
+const texto_pesquisa = document.querySelector("#texto_pesquisa");
+const limpar_filtro = document.querySelector("#limpar_filtro");
 
+let jogos = [];
 
-//Array
-let jogos = new Array();
+let lista_de_estilos = ["3D", "2D", "Jogo de luta"];
 
-/* Pegar a imagem selecionada pelo usuário */
-
-function PegaURLImagem() {
-  return (caminho_da_imagem = URL.createObjectURL(input_com_imagem.files[0]));
-}
-
-function ExibirImagem(caminho_da_imagem) {
-  caminho_da_imagem == " " ? " " : CriarElementoImagem(caminho_da_imagem);
-}
-
-input_com_imagem.addEventListener("input", (event) => {
-  const caminho_da_imagem = PegaURLImagem();
-  ExibirImagem(caminho_da_imagem);
+texto_pesquisa.addEventListener("input", function () {
+  ListaComFiltro();
 });
 
-function CriarElementoImagem(urlImagem) {
-  const imagem = document.createElement("img");
-  visualizar_imagem_baixada.classList.add("mostrarImagem");
-  imagem.src = urlImagem;
-  visualizar_imagem_baixada.appendChild(imagem);
+limpar_filtro.addEventListener("click", function () {
+  ListaSemFiltro();
+});
+
+function PegarURLImagem() {
+  if (input_com_imagem.files.length === 0) {
+    return "";
+  }
+  return URL.createObjectURL(input_com_imagem.files[0]);
+}
+function PegarURLAudio() {
+  if (input_com_audio.files.length === 0) {
+    return "";
+  }
+  return URL.createObjectURL(input_com_audio.files[0]);
 }
 
-// Lógica para criar jogo
+function CadastrarJogo() {
+  const urlImagem = PegarURLImagem();
+  const urlAudio = PegarURLAudio();
+  const novoJogo = Jogo(nome.value, estilo.value, urlImagem, urlAudio);
 
-const CriarJogo = () => {
-  const imagem = PegaURLImagem();
-  const novoJogo = Jogo(nome.value, descricao.value, imagem, link.value);
-  jogos.push(novoJogo);
-  localStorage.setItem("jogos", JSON.stringify(jogos));
-};
+  if (VerificarCampos(novoJogo)) {
+    jogos.push(novoJogo);
+    ListaSemFiltro();
+  } else {
+    alert("Preencha todos os campos obrigatórios!");
+  }
+}
 
-const Jogo = (nome, descricao, imagem, link) => ({
+function VerificarCampos(novoJogo) {
+  if (novoJogo.nome != "" && novoJogo.estilo != "" && novoJogo.link !== "") {
+    return true;
+  }
+  return false;
+}
+
+function RemoverElemento(indice) {
+  jogos.splice(indice, 1);
+  lista_de_jogos.innerHTML = "";
+  ListaSemFiltro();
+}
+
+function ListaSemFiltro() {
+  lista_de_jogos.innerHTML = "";
+  for (let i = 0; i < jogos.length; i++) {
+    const div = document.createElement("div");
+    div.classList.add("card_Jogo");
+    div.innerHTML = `
+        <img src = "${jogos[i].imagem}">
+        <audio src="${jogos[i].audio}" controls autoplay></audio>
+        <h2>${jogos[i].nome}</h2>
+        <div>
+        <p>${jogos[i].estilo}</p>
+        <a href = ${jogos[i].link}/>
+         </div>
+         <button onclick="RemoverElemento(${i})"> Remover elemento </button>
+        
+         `;
+    lista_de_jogos.appendChild(div);
+  }
+}
+
+function ListaComFiltro() {
+  lista_de_jogos.innerHTML = "";
+  for (let i = 0; i < jogos.length; i++) {
+    if (jogos[i].nome === texto_pesquisa.value) {
+      const div = document.createElement("div");
+      div.classList.add("card_Jogo");
+      div.innerHTML = `
+      <img src = "${jogos[i].imagem}">
+      <audio src="${jogos[i].audio}" controls autoplay></audio>
+        <p>${jogos[i].nome}</p>
+        <p>${jogos[i].estilo}</p>
+         <a href = ${jogos[i].link}/>
+         <button onclick="RemoverElemento(${i})"> Remover elemento </button>
+        `;
+      lista_de_jogos.appendChild(div);
+    }
+  }
+}
+
+function PreencherEstilos() {
+  for (let i = 0; i < lista_de_estilos.length; i++) {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <option class = "option"> ${lista_de_estilos[i]} </option> 
+      `;
+    estilo.appendChild(div);
+  }
+}
+
+const Jogo = (nome, estilo, imagem, audio) => ({
   nome,
-  descricao,
+  estilo,
   imagem,
-  link,
+  audio,
 });
+
+PreencherEstilos();
+
+localStorage.setItem("estilos", JSON.stringify(lista_de_estilos));
