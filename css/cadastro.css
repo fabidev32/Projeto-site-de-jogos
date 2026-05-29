@@ -1,84 +1,40 @@
 body {
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
-  background-color: #3f0071;
+  background-color: #1f0831;
 }
 
-button,
-input {
-  transition: transform 0.3s ease-in-out;
-}
-button:hover,
-input:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-input {
-  width: 400px;
-  height: 50px;
-  border-radius: 20px;
-  border: 1px solid #1f0831;
-  margin: 5px;
-}
-
-input::placeholder {
-  font-family: FreeMono, monospace;
-  font-size: 20px;
-  padding: 10px;
-}
-
-input[type="file"] {
-  display: none;
+h3 {
+  color: #655970;
+  font-size: 30px;
+  text-transform: uppercase;
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
 }
 
-.container_formulario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  height: 100vh;
-  margin: 10px;
-  flex-direction: column;
-}
+/* Container cadastro */
 
 .div_formulario {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  width: 800px;
-  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  margin: 20px;
+  width: 70%;
   border-radius: 20px;
   border: 5px solid white;
-  background-color: #1f0831;
-}
-
-.div_imagem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 0px;
-}
-
-.div_texto,
-.div_botoes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  gap: 20px;
+  background-color: #350f52;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .div_formulario h3 {
@@ -87,41 +43,10 @@ main {
   font-family: FreeMono, monospace;
 }
 
-.div_imagem label {
-  font-size: 20px;
-  color: white;
-  font-family: FreeMono, monospace;
-  height: 30px;
-  background-color: #3f0071;
-  border-radius: 10px;
-  border: 1px solid white;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.div_imagem div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.div_imagem button {
+#cadastrar {
   border-radius: 80px;
-  background-color: #1f0831;
-  border: 2px solid #bf92e4;
-  width: 150px;
-  height: 50px;
-  color: #f5f4f7;
-  font-family: FreeMono, monospace;
-  font-size: 15px;
-}
-
-#button {
-  margin-top: 20px;
-  border-radius: 80px;
-  background-color: #3f0071;
-  border: 5px solid #bf92e4;
+  background-color: #4d2070;
+  border: 5px solid #734797;
   width: 250px;
   height: 50px;
   color: #f5f4f7;
@@ -129,24 +54,199 @@ main {
   font-size: 20px;
 }
 
-/* Imagem */
-
-.visualizar_imagem_baixada {
-  display: none;
+.div_formulario input[type="text"] {
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #350f52;
+  border: 0px;
+  color: white;
+  border-bottom: 2px solid #482364;
+  outline: none;
 }
 
-.mostrarImagem {
-  width: 150px;
-  height: 150px;
-  padding: 5px;
+.div_formulario input[type="text"]:focus {
+  border: 3px solid #19111f;
+}
+
+input::placeholder {
+  font-family: FreeMono, monospace;
+  color: rgb(231, 221, 221);
+  font-size: 20px;
+  padding: 10px;
+}
+
+input[type="file"] {
+  font-size: 20px;
+  color: white;
+  font-family: FreeMono, monospace;
+  height: 30px;
+  width: 80%;
+  background-color: #350f52;
+  border-radius: 10px;
+  border: 2px solid #4a305e;
+  padding: 10px;
+  cursor: pointer;
+}
+
+label {
+  font-size: 25px;
+  color: whitesmoke;
+}
+
+#cadastrar {
   margin-top: 20px;
-
+  border-radius: 80px;
+  background-color: #4a305e;
+  border: 3px solid #9676af;
+  width: 250px;
+  height: 50px;
+  color: #cbcbd8;
+  font-family: FreeMono, monospace;
+  font-size: 20px;
 }
 
-.mostrarImagem img {
-  width: 200px;
-  height: 200px;
+/* Container filtro */
+
+.div_filtro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 70%;
+  gap: 10px;
 }
 
+.div_filtro p {
+  font-size: 25px;
+  color: whitesmoke;
+}
 
+.div_filtro input {
+  font-size: 20px;
+  color: white;
+  font-family: FreeMono, monospace;
+  height: 20px;
+  width: 80%;
+  background-color: #bb9cd3;
+  border: 3px solid #9676af;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
 
+.div_filtro button {
+  font-size: 15px;
+  color: rgb(236, 229, 229);
+  text-transform: uppercase;
+  font-family: FreeMono, monospace;
+  width: 50%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #4d2070;
+  border: 3px solid #9676af;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Container lista  */
+
+h2 {
+  font-size: 30px;
+  font-family: FreeMono, monospace;
+  text-transform: uppercase;
+  color: #f5f4f7;
+}
+.lista_de_jogos {
+  display: flex;
+  width: 80%;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  margin: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_jogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #4a305e;
+  border: 2px solid rgb(247, 243, 243);
+  border-radius: 30px;
+  padding: 10px;
+  width: 30%;
+}
+
+.card_jogo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c4afd4;
+  border-radius: 20px;
+  width: 90%;
+  height: 100%;
+  padding: 10px;
+  margin: 20px;
+}
+
+.card_jogo img {
+  width: 250px;
+  border-radius: 20px;
+}
+
+.card_jogo a {
+  font-size: 15px;
+  font-family: FreeMono, monospace;
+  text-transform: uppercase;
+  color: #9b9b9c;
+}
+
+.card_jogo p {
+  font-size: 15px;
+  font-family: FreeMono, monospace;
+  text-transform: uppercase;
+  color: #f5f4f7;
+}
+
+.card_jogo button {
+  margin-top: 20px;
+  border-radius: 80px;
+  background-color: #401e5a;
+  border: 4px solid #291538;
+  width: 250px;
+  height: 50px;
+  color: #f5f4f7;
+  font-family: FreeMono, monospace;
+  font-size: 20px;
+}
+.card_jogo div p {
+  color: #545455;
+}
+
+/* Estilizando o select */
+
+.estilo {
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #4d2070;
+  border: 1px solid #9155be;
+  color: white;
+}
+.option {
+  background-color: #4d2070;
+  color: white;
+}
+
+.div_formulario p {
+  font-size: 20px;
+  font-family: FreeMono, monospace;
+  color: #f5f4f7;
+}

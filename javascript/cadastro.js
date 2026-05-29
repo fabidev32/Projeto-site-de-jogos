@@ -64,15 +64,14 @@ function ListaSemFiltro() {
   lista_de_jogos.innerHTML = "";
   for (let i = 0; i < jogos.length; i++) {
     const div = document.createElement("div");
-    div.classList.add("card_Jogo");
+    div.classList.add("card_jogo");
     div.innerHTML = `
         <img src = "${jogos[i].imagem}">
         <audio src="${jogos[i].audio}" controls autoplay></audio>
         <h2>${jogos[i].nome}</h2>
         <div>
         <p>${jogos[i].estilo}</p>
-        <a href = ${jogos[i].link}/>
-         </div>
+       <a href="${jogos[i].link}" target="_blank">Acessar Jogo</a>
          <button onclick="RemoverElemento(${i})"> Remover elemento </button>
         
          `;
@@ -85,13 +84,13 @@ function ListaComFiltro() {
   for (let i = 0; i < jogos.length; i++) {
     if (jogos[i].nome === texto_pesquisa.value) {
       const div = document.createElement("div");
-      div.classList.add("card_Jogo");
+      div.classList.add("card_jogo");
       div.innerHTML = `
       <img src = "${jogos[i].imagem}">
       <audio src="${jogos[i].audio}" controls autoplay></audio>
         <p>${jogos[i].nome}</p>
         <p>${jogos[i].estilo}</p>
-         <a href = ${jogos[i].link}/>
+         <a href="${jogos[i].link}" target="_blank">Acessar Jogo</a> 
          <button onclick="RemoverElemento(${i})"> Remover elemento </button>
         `;
       lista_de_jogos.appendChild(div);
