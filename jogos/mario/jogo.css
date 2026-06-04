@@ -1,0 +1,90 @@
+.section_jogo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.jogo div {
+  width: 80%;
+  height: 60%;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid black;
+}
+
+.mario {
+  position: absolute;
+  height: 200px;
+  width: 120px;
+  bottom: 0px;
+  left: 100px;
+}
+
+.obstaculo {
+  height: 160px;
+  width: 100px;
+  background-color: red;
+  position: absolute;
+  animation: movimentacao 2s linear infinite;
+  bottom: 0px;
+}
+
+.jump {
+  animation: jump 0.5s linear;
+}
+
+.gameOver {
+    animation: none;
+}
+
+/* @keyframes movimentacao {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(700px);
+  }
+} */
+
+@keyframes movimentacao {
+  0% {
+    left: -400px;
+  }
+  50%{
+    left: 900px;
+  }
+  100%{
+    left: 2000px;
+  }
+}
+
+/* Se eu adiciono mais valores intermediários, fica mais rápido
+
+Como que a lógica dos pixels funcionam em animações?
+
+*/
+
+@keyframes jump {
+  0% {
+    bottom: 0px;
+  }
+  20% {
+    bottom: 180px;
+  }
+  80%{
+    bottom: 90px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
