@@ -1,0 +1,79 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container_jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_jogo {
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
+  grid-template-rows: repeat(1fr, 3);
+}
+
+.section_jogo div {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(176, 182, 187);
+  border: 1px solid black;
+}
+
+/* Posicionando no tabuleiro */
+
+/* --> Primeira linha */
+.posicao_01 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.posicao_02 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.posicao_03 {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+
+/* --> Segunda linha */
+.posicao_04 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.posicao_05 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.posicao_05 {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+/* --> Terceira linha */
+.posicao_07 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.posicao_08 {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.posicao_09 {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+/* Jogadores */
+
+.jogador {
+    font-size: 20px;
+}
+

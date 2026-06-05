@@ -1,5 +1,5 @@
 let mario = document.querySelector(".mario");
-let obstaculo = document.querySelector(".obstaculo");
+let pine = document.querySelector(".pine");
 let reiniciar_jogo = document.querySelector(".reiniciar_jogo");
 let loop;
 
@@ -13,39 +13,38 @@ function jump() {
 
 function game() {
   loop = setInterval(() => {
-    const positionObstaculo = window
-      .getComputedStyle(obstaculo)
-      .left.replace("px", "");
-    const positionMario = window
-      .getComputedStyle(mario)
-      .bottom.replace("px", "");
-    console.log(positionMario);
-    if (
-      positionObstaculo <= 100 &&
-      positionObstaculo > 50 &&
-      positionMario < 70
-    ) {
+    if (marioEnconstou() && marioNaoPulou()) {
       GameOver();
     }
   }, 10);
+}
 
-  //O Mario está fixo no lado esquerdo da tela.
-  // Digamos que o Mario comece em left: 100px e tenha
-  // 50px de largura.
-  // Isso significa que o Mario ocupa o espaço entre o pixel 100 e o pixel 150 da tela.
+function marioEnconstou() {
+  const leftPine = window.getComputedStyle(pine).left.replace("px", "");
+  if (leftPine >= 400 && leftPine <= 500) {
+    return true;
+  }
+}
+
+function marioNaoPulou() {
+  const leftPine = window.getComputedStyle(pine).left.replace("px", "");
+  const bottomMario = window.getComputedStyle(mario).bottom.replace("px", "");
+  if (bottomMario < 70) {
+    return true;
+  }
 }
 
 function ReiniciarJogo() {
   reiniciar_jogo.innerHTML = "";
   mario.classList.remove("gameOver");
-  obstaculo.classList.remove("gameOver");
+  pine.classList.remove("gameOver");
   //como eu faço o cano ficar depois do mário?
   game();
 }
 
 function GameOver() {
   clearInterval(loop);
-  obstaculo.classList.add("gameOver");
+  pine.classList.add("gameOver");
   mario.classList.add("gameOver");
   const div = document.createElement("div");
 
