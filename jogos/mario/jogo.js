@@ -1,5 +1,5 @@
 let mario = document.querySelector(".mario");
-let pine = document.querySelector(".pine");
+let obstaculo = document.querySelector(".obstaculo");
 let reiniciar_jogo = document.querySelector(".reiniciar_jogo");
 let loop;
 
@@ -20,14 +20,14 @@ function game() {
 }
 
 function marioEnconstou() {
-  const leftPine = window.getComputedStyle(pine).left.replace("px", "");
-  if (leftPine >= 400 && leftPine <= 500) {
+  const leftObstaculo = window.getComputedStyle(obstaculo).left.replace("px", "");
+  if (leftObstaculo >= 450 && leftObstaculo <= 500) {
     return true;
   }
 }
 
 function marioNaoPulou() {
-  const leftPine = window.getComputedStyle(pine).left.replace("px", "");
+  const leftObstaculo = window.getComputedStyle(obstaculo).left.replace("px", "");
   const bottomMario = window.getComputedStyle(mario).bottom.replace("px", "");
   if (bottomMario < 70) {
     return true;
@@ -37,16 +37,16 @@ function marioNaoPulou() {
 function ReiniciarJogo() {
   reiniciar_jogo.innerHTML = "";
   mario.classList.remove("gameOver");
-  pine.classList.remove("gameOver");
-  //como eu faço o cano ficar depois do mário?
+  obstaculo.classList.remove("gameOver");
   game();
 }
 
 function GameOver() {
   clearInterval(loop);
-  pine.classList.add("gameOver");
+  obstaculo.classList.add("gameOver");
   mario.classList.add("gameOver");
   const div = document.createElement("div");
+  div.classList.add("reiniciar");
 
   div.innerHTML = `
    
@@ -54,11 +54,9 @@ function GameOver() {
     <button onclick = "ReiniciarJogo()"> Jogar novamente </button>
    
    `;
-  //Como a função está no meu Javascript eu não preciso adicionar a interpolação?
   reiniciar_jogo.appendChild(div);
 }
 
-//não coloco o () dentro de uma string para que a função não seja executada exatamente no momento que minha tela for renderizada
 
 document.addEventListener("keydown", jump);
 game();

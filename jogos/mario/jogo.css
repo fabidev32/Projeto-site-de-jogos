@@ -1,3 +1,4 @@
+/* 🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra */ 
 .section_jogo {
   width: 100%;
   height: 100vh;
@@ -7,6 +8,7 @@
   flex-direction: column;
 }
 
+/* 🎯 Crio a tela do jogo */
 .jogo {
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@
   height: 100%;
 }
 
+/* 🎯 Crio o cenário do jogo */
 .jogo div {
   width: 1000px;
   height: 380px;
@@ -23,6 +26,7 @@
   border: 2px solid black;
 }
 
+/* 🎯 Crio a movimentação do cenário */
 .cenario {
   position: relative;
   border: 2px solid black;
@@ -41,6 +45,7 @@
   
 }
 
+/* 🎯 Estilização do Mário */
 .mario {
   position: absolute;
   height: 100px;
@@ -49,22 +54,7 @@
   left: 500px;
 }
 
-.pine {
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  animation: movimentacao 2s linear infinite;
-  bottom: 0px;
-}
-
-.jump {
-  animation: jump 0.5s linear;
-}
-
-.gameOver {
-  animation: none;  
-}
- 
+/* 🎯 Animação que faz o Mário pular */
 @keyframes jump {
   0% {
     bottom: 0px;
@@ -77,10 +67,25 @@
   }
 }
 
+.jump {
+  animation: jump 0.5s linear;
+}
+
+
+/* 🎯 Estilização do obstáculo */
+.obstaculo {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  animation: movimentacao 2s linear infinite;
+  bottom: 0px;
+}
+
+/* 🎯 Animação que faz o cenário se movimentar */
 
 @keyframes movimentacao {
   0% {
-    left: -700px;
+    left: -400px;
   }
   50% {
     left: 900px;
@@ -90,19 +95,36 @@
   }
 }
 
-.reiniciar_jogo{
+
+.gameOver {
+  animation: none;  
+}
+ 
+.reiniciar{
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px dashed #80ddda;
+  flex-direction: column;
+  border: 5px dashed #2f5a59;
+  border-radius: 20px;
+  margin: 10px;
   color: white;
   height: 200px;
-  width: 200px;
+  width: 400px;
   background-color: #7cc6fe;
 }
 
-.reiniciar_jogo button {
-  background-color: #A8DADC;
+.reiniciar button {
+  background-color: #218b8f;
   height: 40px;
   width: 150px;
+  border: 2px solid white;
+  border-radius: 20px;  
+  color: white;
 }
+
+.reiniciar button:hover{
+  background-color: #d3f2f3; 
+  color: black;
+}
+
