@@ -1,4 +1,4 @@
-/* 🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra */ 
+/* 🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra */
 .section_jogo {
   width: 100%;
   height: 100vh;
@@ -18,31 +18,29 @@
 }
 
 /* 🎯 Crio o cenário do jogo */
-.jogo div {
-  width: 1000px;
-  height: 380px;
-  overflow: hidden;
-  position: absolute;
+.cenario {
   border: 2px solid black;
 }
 
 /* 🎯 Crio a movimentação do cenário */
 .cenario {
-  position: relative;
+  width: 1080px;
+  height: 380px;
+  overflow: hidden;
+  position: absolute;
   border: 2px solid black;
-  background-image: url('cenario.jpg'); 
-  background-repeat: repeat-x; 
+  background-image: url("cenario.jpg");
+  background-repeat: repeat-x;
   animation: moverCenario 2s linear infinite;
 }
 
 @keyframes moverCenario {
   0% {
-    background-position: 0px; 
+    background-position: 0px;
   }
   100% {
-    background-position: -2000px; 
+    background-position: -2000px;
   }
-  
 }
 
 /* 🎯 Estilização do Mário */
@@ -59,7 +57,7 @@
   0% {
     bottom: 0px;
   }
-  50%{
+  50% {
     bottom: 180px;
   }
   100% {
@@ -70,7 +68,6 @@
 .jump {
   animation: jump 0.5s linear;
 }
-
 
 /* 🎯 Estilização do obstáculo */
 .obstaculo {
@@ -95,12 +92,11 @@
   }
 }
 
-
 .gameOver {
-  animation: none;  
+  animation: none;
 }
- 
-.reiniciar{
+
+.reiniciar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,12 +115,11 @@
   height: 40px;
   width: 150px;
   border: 2px solid white;
-  border-radius: 20px;  
+  border-radius: 20px;
   color: white;
 }
 
-.reiniciar button:hover{
-  background-color: #d3f2f3; 
+.reiniciar button:hover {
+  background-color: #d3f2f3;
   color: black;
 }
-
