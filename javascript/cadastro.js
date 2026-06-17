@@ -1,11 +1,11 @@
 const nome = document.getElementById("nome");
 const link = document.getElementById("link");
-// let genero = document.getElementById("genero");
+const descricao = document.getElementById("descricao");
+let genero = document.getElementById("genero");
 let estilo = document.querySelector(".estilo");
 let lista_de_jogos = document.querySelector(".lista_de_jogos");
-let audio = document.querySelector("#audio");
-let input_com_imagem = document.getElementById("input_com_imagem");
-let input_com_audio = document.getElementById("input_com_audio");
+let video = document.querySelector("#video");
+let input_com_video = document.getElementById("input_com_video");
 const texto_pesquisa = document.querySelector("#texto_pesquisa");
 const limpar_filtro = document.querySelector("#limpar_filtro");
 
@@ -19,25 +19,19 @@ texto_pesquisa.addEventListener("input", function () {
 
 limpar_filtro.addEventListener("click", function () {
   ListaSemFiltro();
+  texto_pesquisa.value = "";
 });
 
-function PegarURLImagem() {
-  if (input_com_imagem.files.length === 0) {
+function PegarURLVideo() {
+  if (input_com_video.files.length === 0) {
     return "";
   }
-  return URL.createObjectURL(input_com_imagem.files[0]);
-}
-function PegarURLAudio() {
-  if (input_com_audio.files.length === 0) {
-    return "";
-  }
-  return URL.createObjectURL(input_com_audio.files[0]);
+  return URL.createObjectURL(input_com_video.files[0]);
 }
 
 function CadastrarJogo() {
-  const urlImagem = PegarURLImagem();
-  const urlAudio = PegarURLAudio();
-  const novoJogo = Jogo(nome.value, estilo.value, urlImagem, urlAudio);
+  const urlVideo = PegarURLVideo();
+  const novoJogo = Jogo(nome.value, link.value, urlVideo, descricao.value, estilo.value);
 
   if (VerificarCampos(novoJogo)) {
     jogos.push(novoJogo);
@@ -48,7 +42,7 @@ function CadastrarJogo() {
 }
 
 function VerificarCampos(novoJogo) {
-  if (novoJogo.nome != "" && novoJogo.estilo != "" && novoJogo.link !== "") {
+  if (novoJogo.nome != "" && novoJogo.estilo != "" && novoJogo.video !== "" && novoJogo.link != "" && novoJogo.descricao != "") {
     return true;
   }
   return false;
@@ -66,13 +60,13 @@ function ListaSemFiltro() {
     const div = document.createElement("div");
     div.classList.add("card_jogo");
     div.innerHTML = `
-        <img src = "${jogos[i].imagem}">
-        <audio src="${jogos[i].audio}" controls autoplay></audio>
+        <video src="${jogos[i].video}" controls autoplay></video>
         <h2>${jogos[i].nome}</h2>
         <div>
         <p>${jogos[i].estilo}</p>
+        <p>${jogos[i].descricao}</p>  
        <a href="${jogos[i].link}" target="_blank">Acessar Jogo</a>
-         <button onclick="RemoverElemento(${i})"> Remover elemento </button>
+        <button onclick="RemoverElemento(${i})"> Remover elemento </button>
         
          `;
     lista_de_jogos.appendChild(div);
@@ -86,13 +80,14 @@ function ListaComFiltro() {
       const div = document.createElement("div");
       div.classList.add("card_jogo");
       div.innerHTML = `
-      <img src = "${jogos[i].imagem}">
-      <audio src="${jogos[i].audio}" controls autoplay></audio>
-        <p>${jogos[i].nome}</p>
+        <video src="${jogos[i].video}" controls autoplay></video>
+        <h2>${jogos[i].nome}</h2>
+        <div>
         <p>${jogos[i].estilo}</p>
-         <a href="${jogos[i].link}" target="_blank">Acessar Jogo</a> 
-         <button onclick="RemoverElemento(${i})"> Remover elemento </button>
-        `;
+        <p>${jogos[i].descricao}</p>  
+       <a href="${jogos[i].link}" target="_blank">Acessar Jogo</a>
+        <button onclick="RemoverElemento(${i})"> Remover elemento </button>
+         `;
       lista_de_jogos.appendChild(div);
     }
   }
@@ -108,13 +103,12 @@ function PreencherEstilos() {
   }
 }
 
-const Jogo = (nome, estilo, imagem, audio) => ({
+const Jogo = (nome, link, video, descricao, estilo) => ({
   nome,
+  link,
+  video,
+  descricao,
   estilo,
-  imagem,
-  audio,
 });
 
 PreencherEstilos();
-
-localStorage.setItem("estilos", JSON.stringify(lista_de_estilos));

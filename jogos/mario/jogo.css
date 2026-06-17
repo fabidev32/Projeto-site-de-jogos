@@ -82,13 +82,16 @@
 
 @keyframes movimentacao {
   0% {
-    left: -400px;
+    left: 1100px;
   }
   50% {
-    left: 900px;
+    left: 500px;
+  }
+  80% {
+    left: 50px;
   }
   100% {
-    left: 2000px;
+    left: -100px;
   }
 }
 
