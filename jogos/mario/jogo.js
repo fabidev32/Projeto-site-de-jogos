@@ -20,16 +20,19 @@ function game() {
 }
 
 function marioEnconstou() {
-  const leftObstaculo = window.getComputedStyle(obstaculo).left.replace("px", "");
-  if (leftObstaculo >= 450 && leftObstaculo <= 500) {
+  const leftObstaculo = window.getComputedStyle(obstaculo).left;
+  const valorConvertidoParaNumero = parseInt(leftObstaculo);
+
+  if (valorConvertidoParaNumero >= 500 && valorConvertidoParaNumero <= 510) {
     return true;
   }
 }
 
 function marioNaoPulou() {
-  const leftObstaculo = window.getComputedStyle(obstaculo).left.replace("px", "");
   const bottomMario = window.getComputedStyle(mario).bottom.replace("px", "");
-  if (bottomMario < 70) {
+  const valorConvertidoParaNumero = parseInt(bottomMario);
+
+  if (valorConvertidoParaNumero < 70) {
     return true;
   }
 }

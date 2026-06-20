@@ -1,4 +1,4 @@
-/* 🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra */
+🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra
 .section_jogo {
   width: 100%;
   height: 100vh;
@@ -14,12 +14,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-}
-
-/* 🎯 Crio o cenário do jogo */
-.cenario {
-  border: 2px solid black;
+  height: 100;
 }
 
 /* 🎯 Crio a movimentação do cenário */
@@ -27,11 +22,10 @@
   width: 1080px;
   height: 380px;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   border: 2px solid black;
   background-image: url("cenario.jpg");
-  background-repeat: repeat-x;
-  animation: moverCenario 2s linear infinite;
+  animation: moverCenario 3s linear infinite;
 }
 
 @keyframes moverCenario {
@@ -126,3 +120,4 @@
   background-color: #d3f2f3;
   color: black;
 }
+

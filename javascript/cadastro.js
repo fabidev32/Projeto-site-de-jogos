@@ -42,7 +42,7 @@ function CadastrarJogo() {
 }
 
 function VerificarCampos(novoJogo) {
-  if (novoJogo.nome != "" && novoJogo.estilo != "" && novoJogo.video !== "" && novoJogo.link != "" && novoJogo.descricao != "") {
+  if (novoJogo.nome != "" && novoJogo.estilo != "" && novoJogo.link != "" && novoJogo.descricao != "") {
     return true;
   }
   return false;
