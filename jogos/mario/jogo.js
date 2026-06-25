@@ -1,11 +1,19 @@
 let mario = document.querySelector(".mario");
 let obstaculo = document.querySelector(".obstaculo");
 let reiniciar_jogo = document.querySelector(".reiniciar_jogo");
+let pontuacao = document.querySelector(".pontuacao");
+
 let loop;
+let totalMoeadas = 0;
+pontuacao.innerHTML = totalMoeadas;
+
 
 function jump() {
   mario.classList.add("jump");
-
+pontuacao.innerHTML = "";
+    totalMoeadas += 1;
+    pontuacao.innerHTML = totalMoeadas;
+    console.log(pontuacao);
   setTimeout(() => {
     mario.classList.remove("jump");
   }, 500);
@@ -48,6 +56,8 @@ function GameOver() {
   clearInterval(loop);
   obstaculo.classList.add("gameOver");
   mario.classList.add("gameOver");
+  pontuacao.innerHTML = "";
+  totalMoeadas = 0;
   const div = document.createElement("div");
   div.classList.add("reiniciar");
 

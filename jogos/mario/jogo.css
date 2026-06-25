@@ -1,5 +1,4 @@
-🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra
-.section_jogo {
+🎯 Centralizo o jogo na tela e coloco as duas divs uma em baixo da outra .section_jogo {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -32,6 +31,7 @@
   0% {
     background-position: 0px;
   }
+
   100% {
     background-position: -2000px;
   }
@@ -44,6 +44,7 @@
   width: 100px;
   bottom: 0px;
   left: 500px;
+  z-index: 1;
 }
 
 /* 🎯 Animação que faz o Mário pular */
@@ -51,9 +52,11 @@
   0% {
     bottom: 0px;
   }
+
   50% {
     bottom: 180px;
   }
+
   100% {
     bottom: 0px;
   }
@@ -70,6 +73,7 @@
   position: absolute;
   animation: movimentacao 2s linear infinite;
   bottom: 0px;
+  z-index: 0;
 }
 
 /* 🎯 Animação que faz o cenário se movimentar */
@@ -78,12 +82,15 @@
   0% {
     left: 1100px;
   }
+
   50% {
     left: 500px;
   }
+
   80% {
     left: 50px;
   }
+
   100% {
     left: -100px;
   }
@@ -93,7 +100,14 @@
   animation: none;
 }
 
-.reiniciar {
+.reiniciar_jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.reiniciar{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,3 +135,17 @@
   color: black;
 }
 
+.pontuacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100px;
+  height: 80px;
+  background-color: #3ca4f3;
+  border: 1px dashed white;
+  border-radius: 20px;
+  color: white; 
+  font-size: 30px;  
+  margin: 10px;
+}
