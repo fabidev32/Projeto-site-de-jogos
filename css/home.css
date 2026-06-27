@@ -258,8 +258,6 @@ button:hover {
   width: 600px;
 }
 
-
-
 .carrossel_trilho {
   display: flex;
   transition: transform 0.5s ease-in-out;
